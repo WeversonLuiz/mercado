@@ -3,13 +3,18 @@ package br.com.mercado.modelo;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Cliente {
 	
 	@Id
+	@GeneratedValue(generator="geradorCliente", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="geradorCliente", sequenceName="cliente_seq", allocationSize=1, initialValue=1)
 	private String email;
 	
 	private String nome;
