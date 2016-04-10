@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% System.out.println("Passou por aqui...");%>
 	<script type="text/javascript">
-		window.location.href="menu.jsp"
+		window.location.href="menu.faces";
 	</script>
 </body>
 </html>

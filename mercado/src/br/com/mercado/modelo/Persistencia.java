@@ -1,7 +1,6 @@
 package br.com.mercado.modelo;
 
 import javax.persistence.EntityManager;
-import javax.servlet.jsp.tagext.TryCatchFinally;
 
 import br.com.mercado.util.ConexaoJpa;
 
