@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -23,6 +24,9 @@ public class Cliente {
 	
 	@OneToMany
 	private List<Pedido> pedidos;
+	
+	@ManyToOne
+	private Cep cep;
 	
 	public String getEmail() {
 		return email;
@@ -42,7 +46,17 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	public Cep getCep() {
+		return cep;
+	}
+	public void setCep(Cep cep) {
+		this.cep = cep;
+	}
 	
-	
-
 }

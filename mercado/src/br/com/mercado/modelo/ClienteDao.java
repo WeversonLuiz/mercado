@@ -32,4 +32,5 @@ public class ClienteDao extends Persistencia<Cliente>{
 			throw new Exception("Não foi possível autenticar.");
 		}
 	}
+
 }

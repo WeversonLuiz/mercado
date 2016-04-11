@@ -1,13 +1,10 @@
 package br.com.mercado.modelo;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -22,9 +19,6 @@ public class Municipio {
 	
 	@Enumerated
 	private Uf uf;
-	
-	@OneToMany
-	private List<Cep> ceps;
 	
 	public Integer getId() {
 		return id;
@@ -44,12 +38,5 @@ public class Municipio {
 	public void setUf(Uf uf) {
 		this.uf = uf;
 	}
-	public List<Cep> getCeps() {
-		return ceps;
-	}
-	public void setCeps(List<Cep> ceps) {
-		this.ceps = ceps;
-	}
-	
 
 }

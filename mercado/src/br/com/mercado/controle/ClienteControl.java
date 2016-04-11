@@ -1,6 +1,11 @@
 package br.com.mercado.controle;
 
+import br.com.mercado.modelo.Cep;
+import br.com.mercado.modelo.CepDao;
 import br.com.mercado.modelo.Cliente;
+import br.com.mercado.modelo.ClienteDao;
+import br.com.mercado.modelo.MercadoException;
+import br.com.mercado.util.Utilitario;
 
 public class ClienteControl {
 	
@@ -10,6 +15,37 @@ public class ClienteControl {
 	private String senha;
 	private String cepString;
 	private boolean autenticado;
+	
+	public String comfirmarCliente(){
+		if (!senha.equals(cliente.getSenha())) {
+			Utilitario.addMessagemFaces("As senhas devem ser iguais!!");
+			return null;
+		}
+		ClienteDao clienteDao = new ClienteDao();
+		try {
+			clienteDao.alterar(cliente);
+			Utilitario.addMessagemFaces("Confirmação realizada com sucesso");
+			autenticado = true;
+			return "confirmado";
+		} catch (Exception e) {
+			Utilitario.addMessagemFaces(e.getMessage());
+			return null;
+		}
+		
+	}
+	
+	public void consultarCep(String evt){
+		CepDao cepDap = new CepDao();
+		if (cepString != null) {
+			try {
+				Cep cep = cepDap.Consultar(cepString);
+				cliente.setCep(cep);
+			} catch (MercadoException e) {
+				Utilitario.addMessagemFaces(e.getMessage());
+			}
+		}
+	}
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -40,5 +76,5 @@ public class ClienteControl {
 	public void setAutenticado(boolean autenticado) {
 		this.autenticado = autenticado;
 	}
-	
+
 }
