@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config
     xmlns="http://java.sun.com/xml/ns/javaee"
@@ -45,6 +46,7 @@
         <from-view-id>/cadastroCliente.jsp</from-view-id>
         <navigation-case>
             <from-outcome>confirmado</from-outcome>
+             <to-view-id>/login.jsp</to-view-id> 
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -52,7 +54,7 @@
         <from-view-id>/carrinho.jsp</from-view-id>
         <navigation-case>
             <from-outcome>comprar</from-outcome>
-            <to-view-id>/carrinho.jsp</to-view-id>
+            <to-view-id>/login.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
     
