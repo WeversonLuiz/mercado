@@ -17,10 +17,10 @@
 			<h:messages></h:messages>
 			<h:panelGrid columns="2" rendered="#{!ClienteControl.autenticado }">
 				<h:outputText value="Email:"></h:outputText>
-				<h:inputText value="#{clienteControl.email}"></h:inputText>
+				<h:inputText value="#{ClienteControl.email}"></h:inputText>
 				<h:outputText value="Senha:"></h:outputText>
-				<h:inputSecret value="#{clienteControl.senha}"></h:inputSecret>
-				<h:commandButton actionListener="#{clienteControl.autenticar}"
+				<h:inputSecret value="#{ClienteControl.senha}"></h:inputSecret>
+				<h:commandButton actionListener="#{ClienteControl.autenticar}"
 					value="Entrar"></h:commandButton>
 				<h:commandButton action="formularioCliente" value="Fazer Cadastro" />
 			</h:panelGrid>
@@ -31,19 +31,19 @@
 					</f:facet>
 					<h:panelGrid columns="2">
 						<h:outputText value="Nome" />
-						<h:outputText value="#{clienteControl.cliente.nome}" />
+						<h:outputText value="#{ClienteControl.cliente.nome}" />
 						<h:outputText value="Email" />
-						<h:outputText value="#{clienteControl.cliente.email}" />
+						<h:outputText value="#{ClienteControl.cliente.email}" />
 						<h:outputText value="Logradouro" />
-						<h:outputText value="#{clienteControl.cliente.cep.logradouro}" />
+						<h:outputText value="#{ClienteControl.cliente.cep.logradouro}" />
 						<h:outputText value="Bairro" />
-						<h:outputText value="#{clienteControl.cliente.cep.bairro} " />
+						<h:outputText value="#{ClienteControl.cliente.cep.bairro} " />
 						<h:outputText value="Municipio" />
-						<h:outputText value="#{clienteControl.cliente.cep.municipio.descricao }" />
-						<h:commandButton actionListener="#{pedidoControl.confirmarCompra}" value="Confirmar Compra" />
+						<h:outputText value="#{ClienteControl.cliente.cep.municipio.descricao }" />
+						<h:commandButton actionListener="#{PedidoControl.confirmarCompra}" value="Confirmar Compra" />
 						<h:commandButton action="formularioCliente" value="Alterar Dados" />
 					</h:panelGrid>
-					<h:commandButton actionListener="#{clienteControl.logout}" value="Sair"></h:commandButton>
+					<h:commandButton actionListener="#{ClienteControl.logout}" value="Sair"></h:commandButton>
 				</rich:panel>
 			</h:panelGroup>
 		</h:form>

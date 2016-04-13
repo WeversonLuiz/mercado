@@ -13,6 +13,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.richfaces.iterator.ForEachIterator;
+
 @Entity
 public class Pedido {
 	
@@ -29,6 +31,28 @@ public class Pedido {
 	
 	@OneToMany
 	private List<ItemPedido> itens;
+	
+	public void adicionarProduto(Produto produto){
+		ItemPedido novoItem = new ItemPedido(produto, this);
+		if(itens.contains(novoItem)){
+			ItemPedido itemPedido = itens.get(itens.indexOf(novoItem));
+			itemPedido.setQuantidade(itemPedido.getQuantidade() + 1);
+		}else{
+			itens.add(novoItem);
+		}
+	}
+	
+	public void removerItem(ItemPedido itemPedido){
+		itens.remove(itemPedido);
+	}
+	
+	public double getPrecoTotal(){
+		double valorTotalPedido = 0;
+		for (ItemPedido itemPedido : itens) {
+			valorTotalPedido += itemPedido.getTotal();
+		}
+		return valorTotalPedido;
+	}
 	
 	public Integer getId() {
 		return id;

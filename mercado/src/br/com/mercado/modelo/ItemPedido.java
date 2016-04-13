@@ -17,10 +17,27 @@ public class ItemPedido {
 	
 	private int quantidade;
 	
+	private double total;
+	
 	@ManyToOne
 	private Pedido pedido;
+	
 	@ManyToOne
 	private Produto produto;
+	
+	public ItemPedido(){
+		
+	}
+	
+	public ItemPedido(Produto produto, Pedido pedido) {
+		this.produto = produto;
+		this.pedido = pedido;
+	}
+	
+	public double getTotalItem(){
+		return total = quantidade * produto.getPreco();
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -44,6 +61,12 @@ public class ItemPedido {
 	}
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+	public double getTotal() {
+		return total;
+	}
+	public void setTotal(double total) {
+		this.total = total;
 	}
 
 }

@@ -35,10 +35,10 @@ public class ClienteControl {
 	}
 	
 	public void consultarCep(String evt){
-		CepDao cepDap = new CepDao();
+		CepDao cepDao = new CepDao();
 		if (cepString != null) {
 			try {
-				Cep cep = cepDap.Consultar(cepString);
+				Cep cep = cepDao.Consultar(cepString);
 				cliente.setCep(cep);
 			} catch (MercadoException e) {
 				Utilitario.addMessagemFaces(e.getMessage());
